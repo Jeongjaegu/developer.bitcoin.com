@@ -756,3 +756,60 @@ unconfirmed `Array`: Array of arrays with unconfirmed transactions for addresses
     //   ],
     //   []
     // ];
+
+### `transactions`
+
+Return list of all transactions for address
+
+#### Arguments
+
+1.  addresses `Array` required: Array with maximum of 20 legacy or cash addresses.
+
+#### Result
+
+transactions `Array`: Array of arrays with all transactions for addresses
+
+#### Examples
+
+    (async () => {
+      try {
+        let transactions = await BITBOX.Address.transactions(['1Fg4r9iDrEkCcDmHTy2T79EusNfhyQpu7W']);
+        console.log(transactions);
+      } catch(error) {
+       console.error(error)
+      }
+    })()
+
+    // returns
+    { pagesTotal: 4,
+      txs:
+       [ { txid: '5165dc531aad05d1149bb0f0d9b7bda99c73e2f05e314bcfb5b4bb9ca5e1af5e',
+           version: 1,
+           locktime: 0,
+           vin: [Array],
+           vout: [Array],
+           blockhash: '000000000000000000bdc52a11408781f1f41b744ee8e5c43df8cda242f09144',
+           blockheight: 556344,
+           confirmations: 972,
+           time: 1542037792,
+           blocktime: 1542037792,
+           valueOut: 0.00041988,
+           size: 226,
+           valueIn: 0.00042231,
+           fees: 0.00000243 },
+         { txid: '54edaa42ff3d6559884a84ebb9bf5ef255635902f5f23b4854245d6b093d41d4',
+           version: 1,
+           locktime: 0,
+           vin: [Array],
+           vout: [Array],
+           blockhash: '000000000000000001043d69b8be59a9a10a085f14b5d2849096df3b9c3377ce',
+           blockheight: 556153,
+           confirmations: 1163,
+           time: 1541924337,
+           blocktime: 1541924337,
+           valueOut: 5.33617629,
+           size: 28540,
+           valueIn: 5.33646658,
+           fees: 0.00029029 }
+        ]
+      }
